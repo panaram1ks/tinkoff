@@ -32,5 +32,6 @@ public class SecondTask {
             int a = amountOfPeople - 1;
             int midle = a / 2;
         }
+        return 1;
     }
 }
