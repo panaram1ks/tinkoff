@@ -4,31 +4,37 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
+    /**
+     * Метод insertionSort:
+     * Проходим по массиву начиная со второго элемента (i = 1).
+     * Для каждого элемента (key) проверяем, если элементы в отсортированной части массива (слева от текущего) больше текущего элемента, то сдвигаем их на одну позицию вправо.
+     * Вставляем текущий элемент на правильную позицию.
+     * <p>
+     * Как работает Insertion Sort:
+     * Инициализируем первый элемент как отсортированный.
+     * Проходим по остальным элементам, вставляя каждый элемент в правильную позицию в отсортированной части массива.
+     * Повторяем этот процесс до тех пор, пока все элементы не будут на своих местах.
+     */
+
     public static void main(String[] args) {
-        int[] array = new int[]{6, 5, 3, 1, 8, 7, 2, 4, 300, 0, 99, -10};
-        // TODO работает не правильно!!!!
+        int[] array = {12, 11, -30, 13, 5, 0, 6};
         insertionSort(array);
+        Arrays.stream(array).forEach(System.out::println);
     }
 
-    public static void insertionSort(int[] example) {
-        outerLoop:
-        // Это метка для внешнего цикла
-        for (int i = 0; i < example.length; i++) {
-            if (example[i] < example[0]) {
-                int temp = example[0];
-                example[0] = example[i];
-                example[i] = temp;
-            } else {
-                for (int j = 1; j < i; j++) {
-                    if (example[i] < example[j]) {
-                        // TODO нужно записать меньший элемент в ячейку где элемент оказался меньше текущего а все остальные элементы сдвинуть вправо и прервать внутренний цикл
-                        System.arraycopy(example, i, example, j, i - j);
-                        continue outerLoop;
-                    }
-                }
+    public static void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; ++i) {
+            int key = array[i];
+            int j = i - 1;
+
+            // Перемещаем элементы массива [0..i-1], которые больше ключа,
+            // на одну позицию вперед от их текущей позиции
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j = j - 1;
             }
+            array[j + 1] = key;
         }
-        Arrays.stream(example).forEach(System.out::println);
     }
 
 }
