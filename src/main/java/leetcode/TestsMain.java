@@ -1,20 +1,20 @@
 package leetcode;
 
-import leetcode.collections.linkedList.MyLinkedList;
+import leetcode.collections.arrayList.ArrayListMy;
 
 public class TestsMain {
     public static void main(String[] args) {
-        MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.add(100);
-        myLinkedList.add(200);
-        myLinkedList.add(300);
-        myLinkedList.add(400);
-        myLinkedList.add(500);
-        myLinkedList.printAll();
-        System.out.println();
 
-        myLinkedList.delete(300);
-        myLinkedList.printAll();
+        ArrayListMy arrayListMy = new ArrayListMy();
+        arrayListMy.push(300);
+        arrayListMy.push(200);
+        arrayListMy.push(100);
+        System.out.println(arrayListMy);
+        arrayListMy.delete(0);
+        System.out.println(arrayListMy);
+        arrayListMy.delete(1);
+        System.out.println(arrayListMy);
+
 
     }
 }
